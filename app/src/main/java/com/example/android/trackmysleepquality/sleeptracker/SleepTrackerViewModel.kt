@@ -33,13 +33,13 @@ class SleepTrackerViewModel(
     private val database: SleepDatabaseDao,
     application: Application) : AndroidViewModel(application) {
 
-//    private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
-//    val navigateToSleepQuality: LiveData<SleepNight>
-//    get() = _navigateToSleepQuality
-//
-//    fun doneNavigating() {
-//        _navigateToSleepQuality.value = null
-//    }
+    private val _navigateToSleepQuality = MutableLiveData<SleepNight>()
+    val navigateToSleepQuality: LiveData<SleepNight>
+    get() = _navigateToSleepQuality
+
+    fun doneNavigating() {
+        _navigateToSleepQuality.value = null
+    }
 
     //TODO (03) Create a MutableLiveData variable tonight for one SleepNight.
 
@@ -97,7 +97,7 @@ class SleepTrackerViewModel(
             val oldNight = toNight.value ?: return@launch
             oldNight.endTimeMilli = System.currentTimeMillis()
             update(oldNight)
-//            _navigateToSleepQuality.value = oldNight
+            _navigateToSleepQuality.value = oldNight
 
         }
 
